@@ -7,7 +7,7 @@ import cv2
 import winsound
 
 #Cette ligne charge le fichier de l’interface utilisateur (UI) nommé camera-securite.py. La fonction loadUiType est utilisée pour charger les fichiers .ui créés avec Qt Designer.
-ui,_=loadUiType('camera-securite.py')
+ui,_=loadUiType('security_cam.ui')
 
 """
 Définition de la classe principale de l’application : MainApp hérite de QMainWindow et de l’interface utilisateur chargée. 
