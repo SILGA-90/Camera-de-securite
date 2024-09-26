@@ -24,7 +24,7 @@ affiche la fenêtre principale et lance la boucle d’événements de l’applic
 """   
 def main():
     app = QApplication(sys.argv)
-    window = MainApp
+    window = MainApp()
     window.show()
     app.exec_()
 #Exécution du script: Cette condition vérifie si le script est exécuté directement (et non importé comme module), et appelle la fonction main pour démarrer l’application
