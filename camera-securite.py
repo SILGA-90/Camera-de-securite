@@ -17,6 +17,18 @@ class MainApp(QMainWindow,ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.MONITORING.clicked.connect(self.start_monitoring)
+        self.VOLUME.clicked.connect(self.set_volume)
+        self.EXIT.clicked.connect(self.close_window)
+        
+    def start_monitoring(self):
+        print('Moniteur démarré')
+        
+    def set_volume(self):
+        print('volume augmenté')
+        
+    def close_window(self):
+        print('fenêtre fermé')
         
 """
 Fonction principale : La fonction main crée une instance de l’application Qt (QApplication), crée une instance de MainApp, 
