@@ -18,6 +18,8 @@ class MainApp(QMainWindow,ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        screen = QGuiApplication.primaryScreen().availableGeometry()
+        self.setGeometry(screen)
         self.MONITORING.clicked.connect(self.start_monitoring)
         self.VOLUME.clicked.connect(self.set_volume)
         self.EXIT.clicked.connect(self.close_window)
@@ -57,7 +59,6 @@ class MainApp(QMainWindow,ui):
         
     def set_volume(self):
         self.VOLUMESLIDER.setVisible(True)
-        print('volume augmenté')
         
     def close_window(self):
         self.close()
@@ -67,7 +68,6 @@ class MainApp(QMainWindow,ui):
         self.volume = self.VOLUMESLIDER.value() * 10
         cv2.waitKey(1000)
         self.VOLUMESLIDER.setVisible(False)
-        print('fenêtre fermé')
         
 """
 Fonction principale : La fonction main crée une instance de l’application Qt (QApplication), crée une instance de MainApp, 
