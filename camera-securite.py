@@ -27,6 +27,20 @@ class MainApp(QMainWindow,ui):
         
     def start_monitoring(self):
         print('Moniteur démarré')
+        webcam = cv2.VideoCapture(0)
+        while True:
+            _,im1 = webcam.read()
+            _,im2 = webcam.read()
+            diff = cv2.absdiff(im1,im2)
+            gray = cv2.cvtColor(diff,cv2.COLOR_BGR2GRAY)
+            blur = cv2.GaussianBlur(gray,(5,5),0)
+            
+            cv2.imshow("CAMERA DE SURVEILLANCE",blur)
+            key = cv2.waitKey(10)
+            if key == 27:
+                break
+        webcam.release()
+        cv2.destroyAllWindows()
         
     def set_volume(self):
         self.VOLUMESLIDER.setVisible(True)
