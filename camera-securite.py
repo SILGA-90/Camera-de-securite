@@ -41,7 +41,7 @@ class MainApp(QMainWindow,ui):
                 if cv2.contourArea(c) < 1000:
                     continue
                 x,y,w,h = cv2.boundingRect(c)
-                cv2.rectangle(im1(x,y),(x+w,y+h),(0,255,2))
+                cv2.rectangle(im1,(x,y),(x+w,y+h),(0,255,2))
                 winsound.Beep(self.volume,200)
             cv2.imshow("CAMERA DE SURVEILLANCE",im1)
     
