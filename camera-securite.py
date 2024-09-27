@@ -14,6 +14,7 @@ Définition de la classe principale de l’application : MainApp hérite de QMai
 Le constructeur initialise la fenêtre principale et configure l’interface utilisateur.
 """
 class MainApp(QMainWindow,ui):
+    volume = 500
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
@@ -36,6 +37,7 @@ class MainApp(QMainWindow,ui):
         
     def set_volume_level(self):
         self.VOLUMELEVEL.setText(str(self.VOLUMESLIDER.value()//10))
+        self.volume = self.VOLUMESLIDER.value() * 10
         cv2.waitKey(1000)
         self.VOLUMESLIDER.setVisible(False)
         print('fenêtre fermé')
