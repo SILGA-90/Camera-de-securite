@@ -20,14 +20,24 @@ class MainApp(QMainWindow,ui):
         self.MONITORING.clicked.connect(self.start_monitoring)
         self.VOLUME.clicked.connect(self.set_volume)
         self.EXIT.clicked.connect(self.close_window)
+        self.VOLUMESLIDER.setVisible(False)
+        self.VOLUMESLIDER.valueChanged.connect(self.set_volume_level)
+        
         
     def start_monitoring(self):
         print('Moniteur démarré')
         
     def set_volume(self):
+        self.VOLUMESLIDER.setVisible(True)
         print('volume augmenté')
         
     def close_window(self):
+        print('fenêtre fermé')
+        
+    def set_volume_level(self):
+        self.VOLUMELEVEL.setText(str(self.VOLUMESLIDER.value()//10))
+        cv2.waitKey(1000)
+        self.VOLUMESLIDER.setVisible(False)
         print('fenêtre fermé')
         
 """

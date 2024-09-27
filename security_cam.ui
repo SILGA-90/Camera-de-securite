@@ -132,7 +132,7 @@ QPushButton#VOLUME:hover{
      </size>
     </property>
    </widget>
-   <widget class="QSlider" name="verticalSlider">
+   <widget class="QSlider" name="VOLUMESLIDER">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -154,7 +154,7 @@ QPushButton#VOLUME:hover{
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="NIVEAUVOLUME">
+   <widget class="QLabel" name="VOLUMELEVEL">
     <property name="geometry">
      <rect>
       <x>185</x>
