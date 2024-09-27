@@ -171,7 +171,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>5</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="CAMWINDOW">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -186,6 +186,9 @@ border:10px solid black;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

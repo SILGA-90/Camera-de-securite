@@ -38,11 +38,15 @@ class MainApp(QMainWindow,ui):
             dilated = cv2.dilate(thresh,None,iterations=3)
             contours,_= cv2.findContours(dilated,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
             for c in contours:
-                if cv2.contourArea(c) < 1000:
+                if cv2.contourArea(c) < 5000:
                     continue
                 x,y,w,h = cv2.boundingRect(c)
                 cv2.rectangle(im1,(x,y),(x+w,y+h),(0,255,2))
-                winsound.Beep(self.volume,200)
+                cv2.imwrite('captured.jpg',im1)
+                image = QImage('captured.jpg')
+                pm = QPixmap.fromImage(image)
+                self.CAMWINDOW.setPixmap(pm)
+                winsound.Beep(self.volume,100)
             cv2.imshow("CAMERA DE SURVEILLANCE",im1)
     
             key = cv2.waitKey(10)
@@ -56,7 +60,7 @@ class MainApp(QMainWindow,ui):
         print('volume augmenté')
         
     def close_window(self):
-        print('fenêtre fermé')
+        self.close()
         
     def set_volume_level(self):
         self.VOLUMELEVEL.setText(str(self.VOLUMESLIDER.value()//10))
